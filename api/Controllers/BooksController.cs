@@ -63,7 +63,7 @@ namespace Fisher.Bookstore.Api.Controllers
 
             return Ok(book);
         }
-
+        [HttpPost]
         public IActionResult Post([FromBody]Book book)
         {
             if (book == null)
@@ -76,7 +76,7 @@ namespace Fisher.Bookstore.Api.Controllers
 
             return CreatedAtRoute("GetBook", new Book{Id = book.Id}, book);
         }
-
+        [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Book book)
         {
             // validate the incoming book
@@ -114,7 +114,7 @@ namespace Fisher.Bookstore.Api.Controllers
             db.SaveChanges();
 
             return NoContent();
-            
+
         }
 
         }
