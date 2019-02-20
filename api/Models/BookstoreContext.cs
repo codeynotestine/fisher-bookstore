@@ -1,4 +1,4 @@
-using Microsoft.EntityFreamworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fisher.Bookstore.Models
 {
