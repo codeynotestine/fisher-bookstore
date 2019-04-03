@@ -13,5 +13,12 @@ namespace Fisher.Bookstore.Models
 
         public List<Book> Titles { get; set; }
 
+      public static implicit operator string(Author v)
+        {
+           // throw new NotImplementedException();
+           return null;
+        }
     }
+
+    
 }
