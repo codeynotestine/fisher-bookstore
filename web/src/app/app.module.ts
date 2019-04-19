@@ -6,13 +6,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BooksComponent } from './books/books/books.component';
 import { BookRowComponent } from './books/book-row/book-row.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BooksComponent,
-    BookRowComponent
+    BookRowComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

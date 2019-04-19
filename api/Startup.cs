@@ -30,8 +30,19 @@ namespace Fisher.Bookstore.Api
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+       
+         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                builder.WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
+        });
+
             services.AddDbContext<BookstoreContext>(options => options.UseNpgsql(Configuration.GetConnectionString("BookstoreContext")));
             
             //Add this for identity
@@ -67,6 +78,7 @@ namespace Fisher.Bookstore.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseCors("CorsPolicy");
         }
     }
 }
